@@ -16,21 +16,21 @@ spring:
           wiretap: true
       routes:
         - id: rewritepath_gui
-          uri: http://host.docker.internal:9000
+          uri: ${GUI_HOST}
           predicates:
             - Path=/gui/**
           filters:
             - RewritePath=/(?<segment>.*), /$\{segment}
 
         - id: rewritepath_api
-          uri: http://host.docker.internal:8080
+          uri: ${API_HOST}
           predicates:
             - Path=/auth/** , /api/**, /media/**
           filters:
             - RewritePath=/(?<segment>.*), /$\{segment}
 
         - id: rewritepath_media
-          uri: http://host.docker.internal:8080
+          uri: ${MEDIA_HOST}
           predicates:
             - Path=/media/**
           filters:
