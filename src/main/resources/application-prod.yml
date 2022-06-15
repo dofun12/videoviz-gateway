@@ -15,19 +15,6 @@ spring:
         httpserver:
           wiretap: true
       routes:
-        - id: rewritepath_gui_empty
-          uri: ${GUI_HOST}
-          predicates:
-            - Path=/,/gui
-          filters:
-            - RewritePath=/gui/, /$\{segment}
-        - id: rewritepath_gui
-          uri: ${GUI_HOST}
-          predicates:
-            - Path=/gui/**, /gui
-          filters:
-            - RewritePath=/(?<segment>.*), /$\{segment}
-
         - id: rewritepath_api
           uri: ${API_HOST}
           predicates:
@@ -39,6 +26,12 @@ spring:
           uri: ${MEDIA_HOST}
           predicates:
             - Path=/media/**
+          filters:
+            - RewritePath=/(?<segment>.*), /$\{segment}
+        - id: rewritepath_gui_empty
+          uri: ${GUI_HOST}
+          predicates:
+            - Path=/**
           filters:
             - RewritePath=/(?<segment>.*), /$\{segment}
 server:
