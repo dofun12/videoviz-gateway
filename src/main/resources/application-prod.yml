@@ -18,7 +18,7 @@ spring:
         - id: rewritepath_gui_empty
           uri: ${GUI_HOST}
           predicates:
-            - Path=/
+            - Path=/,/gui
           filters:
             - RewritePath=/gui/, /$\{segment}
         - id: rewritepath_gui
