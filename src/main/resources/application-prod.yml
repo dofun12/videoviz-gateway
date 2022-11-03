@@ -28,10 +28,18 @@ spring:
             - Path=/media/**
           filters:
             - RewritePath=/(?<segment>.*), /$\{segment}
+
+        - id: rewritepath_gui
+          uri: ${GUI_HOST}
+          predicates:
+            - Path=/gui/**
+          filters:
+            - RewritePath=/(?<segment>.*), /$\{segment}
+
         - id: rewritepath_gui_empty
           uri: ${GUI_HOST}
           predicates:
-            - Path=/**
+            - Path=/
           filters:
             - RewritePath=/(?<segment>.*), /$\{segment}
 server:
