@@ -41,6 +41,6 @@ spring:
           predicates:
             - Path=/
           filters:
-            - RewritePath=/(?<segment>.*), /$\{segment}
+            - RewritePath=/gui/
 server:
   port: 7777
