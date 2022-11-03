@@ -41,6 +41,6 @@ spring:
           predicates:
             - Path=/
           filters:
-            - RewritePath=/gui/
+            - RewritePath=/gui/index.html
 server:
   port: 7777
