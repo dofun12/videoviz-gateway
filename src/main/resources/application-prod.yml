@@ -18,7 +18,7 @@ spring:
         - id: rewritepath_api
           uri: ${API_HOST}
           predicates:
-            - Path=/auth/** , /api/**
+            - Path=/auth/** , /api/** , /actuator/**
           filters:
             - RewritePath=/(?<segment>.*), /$\{segment}
 
