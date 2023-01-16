@@ -27,7 +27,7 @@ spring:
           predicates:
             - Path=/backend/actuator/**
           filters:
-            - RewritePath=/actuator/(?<segment>.*)
+            - RewritePath=/actuator/(?<segment>.*), /actuator/$\{segment}
 
         - id: rewritepath_media
           uri: ${MEDIA_HOST}

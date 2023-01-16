@@ -21,7 +21,7 @@ opentracing:
     udp-sender:
       host: 192.168.15.102
       port: 6831
-    log-spans: false
+    log-spans: true
     service-name: 'videoviz-gateway_v@project.version@'
 management:
   endpoints:
