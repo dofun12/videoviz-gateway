@@ -1,4 +1,12 @@
-
+#  opentracing.jaeger.udp-sender.host=192.168.15.102
+#  opentracing.jaeger.udp-sender.port=6831
+#logs the spans in console
+#  opentracing.jaeger.log-spans=false
+#  opentracing.jaeger.service-name=videoviz-backend-dev_v@project.version@
+# management.endpoints.web.exposure.include=*
+#  management.metrics.export.prometheus.enabled=true
+# management.endpoint.metrics.enabled=false
+# management.endpoint.prometheus.enabled=true
 logging:
   level:
     reactor:
@@ -7,7 +15,31 @@ logging:
       springframework:
         cloud:
           gateway: TRACE
+
+opentracing:
+  jaeger:
+    udp-sender:
+      host: 192.168.15.102
+      port: 6831
+    log-spans: false
+    service-name: 'videoviz-gateway_v@project.version@'
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    metrics:
+      enabled: false
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+
 spring:
+  application:
+    name: 'videoviz-gateway'
   cloud:
     gateway:
       default-filters:
