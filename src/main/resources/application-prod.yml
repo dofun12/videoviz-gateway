@@ -32,16 +32,8 @@ spring:
         - id: rewritepath_gui
           uri: ${GUI_HOST}
           predicates:
-            - Path=/gui/**
+            - Path=/gui/**, /
           filters:
             - RewritePath=/(?<segment>.*), /$\{segment}
-
-        - id: rewritepath_gui_empty
-          uri: ${GUI_HOST}
-          predicates:
-            - Path=/, /gui, /gui/
-          filters:
-            - RedirectTo=302, http://${HOST}:${server.port}/gui/
-
 server:
   port: 7777
